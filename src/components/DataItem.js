@@ -37,62 +37,58 @@ const DataItem = ({
   };
 
   return (
-    <Row justify={"center"} align={"center"}>
-      <Col span={22}>
-        <Row
-          style={{
-            backgroundColor: "white",
-          }}
-          justify={"space-between"}
-          align={"middle"}
-        >
-          <Divider style={{ padding: "5px", margin: "5px" }} />
+    <Row justify="center" align="middle" style={{ padding: '0px', margin: '0px', marginBottom: '10px' }}>
+      <Col span={24}>
+        <Row style={{ backgroundColor: "white" }} justify="space-between" align="middle">
+          <Divider style={{ padding: "0px", margin: "0px", marginTop: '0px' }} />
 
-          <Col onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <Row>
-              <Image
-                src={require("../assets/images/logo.png")}
-                preview={false}
-                width={32}
-                height={32}
-                
+          <Col
+          span={10}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={{ display: 'flex', alignItems: 'center' }} // Added CSS properties
+          >
+            <Image
+              src={require("../assets/images/logo.png")}
+              preview={false}
+              width={32}
+              height={32}
+            />
+
+            {editIndex === index ? (
+              <Input
+                value={newData}
+                onChange={(e) => setNewData(e.target.value)}
+                onPressEnter={handleAddData}
+                autoFocus
               />
-
-              {editIndex === index ? (
-                <Input
-                  value={newData}
-                  onChange={(e) => setNewData(e.target.value)}
-                  onPressEnter={handleAddData}
-                  autoFocus
-                />
-              ) : (
-                <p style={{marginInline:'1rem',fontWeight:'bold'}}>{item.value}</p>
-              )}
-              {editIndex === index ? (
-                <></>
-              ) : (
-                <>
-                  {isHovered ? (
-                    <img
-                      src={afterHoverImage}
-                      alt="After Hover"
-                      style={{ marginRight: "5px", cursor: "pointer" }}
-                      onClick={() => handleEditData(index)}
-                    />
-                  ) : (
-                    <img
-                      src={beforeHoverImage}
-                      alt="Before Hover"
-                      style={{ marginRight: "5px", cursor: "pointer" }}
-                      onClick={() => handleEditData(index)}
-                    />
-                  )}
-                </>
-              )}
-            </Row>
+            ) : (
+              <p style={{ marginInline: '1rem', fontWeight: 'bold' }}>{item.value}</p>
+            )}
+            {editIndex === index ? (
+              <></>
+            ) : (
+              <>
+                {isHovered ? (
+                  <img
+                    src={afterHoverImage}
+                    alt="After Hover"
+                    style={{ marginRight: "5px", cursor: "pointer" }}
+                    onClick={() => handleEditData(index)}
+                  />
+                ) : (
+                  <img
+                    src={beforeHoverImage}
+                    alt="Before Hover"
+                    style={{ marginRight: "5px", cursor: "pointer" }}
+                    onClick={() => handleEditData(index)}
+                  />
+                )}
+              </>
+            )}
           </Col>
 
-          <Col>
+          <Col span={10}>
             <p>{item.createdDate}</p>
           </Col>
           <Col onMouseEnter={handleDeleteMouseEnter} onMouseLeave={handleDeleteMouseLeave}>
@@ -112,7 +108,7 @@ const DataItem = ({
               />
             )}
           </Col>
-          <Divider style={{ padding: "5px", margin: "5px" }} />
+          <Divider style={{ padding: "0px", margin: "0px", marginBottom: '0px' }} />
         </Row>
       </Col>
     </Row>

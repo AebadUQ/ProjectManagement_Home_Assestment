@@ -50,7 +50,6 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
     setNewData(item.value);
     setEditIndex(index);
   };
-  
 
   const handleCancelEdit = () => {
     setNewData('');
@@ -83,16 +82,28 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
   };
 
   const handleDragEnd = (result) => {
-    dragEnd(result);
+    if (!result.destination) {
+      return;
+    }
+
+    const { source, destination } = result;
+
+    // Reorder the data array based on the drag and drop result
+    const newData = Array.from(data);
+    const [removed] = newData.splice(source.index, 1);
+    newData.splice(destination.index, 0, removed);
+
+    // Update the state with the new data order
+    dragEnd(newData);
   };
 
   return (
-    <Layout style={{backgroundColor:'white'}}>
+    <Layout style={{ backgroundColor: 'white' }}>
       <HeaderComponent setIsAddingData={setIsAddingData} />
 
       <Content style={{ padding: '20px' }}>
         {isAddingData ? (
-          <Row >
+          <Row>
             <Col span={8}>
               <Input
                 placeholder="Enter data"
@@ -104,18 +115,23 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
           </Row>
         ) : null}
 
-        <DragDropContext onDragEnd={handleDragEnd} >
+        <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId="data">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {data.map((item, index) => (
-                  <Draggable key={index} draggableId={`item-${index}`} index={index} >
-                    {(provided) => (
+                  <Draggable key={index} draggableId={`item-${index}`} index={index}>
+                    {(provided, snapshot) => (
                       <div
-                     
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
+                        style={{
+                          boxShadow: snapshot.isDragging
+                            ? '0 0 5px 2px rgba(0, 0, 0, 0.1)'
+                            : 'none',
+                          ...provided.draggableProps.style
+                        }}
                       >
                         <DataItem
                           item={item}
@@ -125,8 +141,10 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
                           handleAddData={handleAddData}
                           handleEditData={() => handleEditData(index)}
                           handleCancelEdit={handleCancelEdit}
-                          handleDeleteDataConfirmation={() => handleDeleteDataConfirmation(index)}
-                          index={index} 
+                          handleDeleteDataConfirmation={() =>
+                            handleDeleteDataConfirmation(index)
+                          }
+                          index={index}
                         />
                       </div>
                     )}
