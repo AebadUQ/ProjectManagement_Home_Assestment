@@ -22,7 +22,14 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
 
   const handleAddData = () => {
     if (newData) {
-      const currentDate = new Date().toLocaleString();
+      const currentDate = new Date().toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true
+      });
       const newDataItem = {
         value: newData,
         createdDate: currentDate,
@@ -80,12 +87,12 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
   };
 
   return (
-    <Layout>
+    <Layout style={{backgroundColor:'white'}}>
       <HeaderComponent setIsAddingData={setIsAddingData} />
 
       <Content style={{ padding: '20px' }}>
         {isAddingData ? (
-          <Row>
+          <Row >
             <Col span={8}>
               <Input
                 placeholder="Enter data"
@@ -97,14 +104,15 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
           </Row>
         ) : null}
 
-        <DragDropContext onDragEnd={handleDragEnd}>
+        <DragDropContext onDragEnd={handleDragEnd} >
           <Droppable droppableId="data">
             {(provided) => (
               <div ref={provided.innerRef} {...provided.droppableProps}>
                 {data.map((item, index) => (
-                  <Draggable key={index} draggableId={`item-${index}`} index={index}>
+                  <Draggable key={index} draggableId={`item-${index}`} index={index} >
                     {(provided) => (
                       <div
+                     
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}

@@ -1,6 +1,10 @@
-import React from 'react';
-import { Row, Col, Image, Input, Button } from 'antd';
-import { EditOutlined, DeleteOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import React from "react";
+import { Row, Col, Image, Input, Divider } from "antd";
+import { EditOutlined, DeleteOutlined, CheckOutlined, CloseOutlined } from "@ant-design/icons";
+import beforeHoverImage from "../assets/images/EditIcon.svg";
+import afterHoverImage from "../assets/images/EditIcon_Hover.svg";
+import beforeHoverImageDelete from "../assets/images/DeleteIcon.svg";
+import afterHoverImageDelete from "../assets/images/DeleteIcon_Hover.svg";
 
 const DataItem = ({
   item,
@@ -13,60 +17,103 @@ const DataItem = ({
   handleDeleteDataConfirmation,
   index,
 }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [isDeleteHovered, setIsDeleteHovered] = React.useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleDeleteMouseEnter = () => {
+    setIsDeleteHovered(true);
+  };
+
+  const handleDeleteMouseLeave = () => {
+    setIsDeleteHovered(false);
+  };
+
   return (
-    <Row style={{ marginTop: '10px', backgroundColor: 'white' }}>
-      <Col>
-        <Image src={require('../assets/images/logo.png')} preview={false} width={32} height={32} />
-      </Col>
-      <Col span={8}>
-        {editIndex === index ? (
-          <Input
-            value={newData}
-            onChange={(e) => setNewData(e.target.value)}
-            onPressEnter={handleAddData}
-            autoFocus
-          />
-        ) : (
-          <p>{item.value}</p>
-        )}
-      </Col>
-      <Col span={8}>
-        <p>{item.createdDate}</p>
-      </Col>
-      <Col span={4}>
-        {editIndex === index ? (
-          <>
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<CheckOutlined />}
-              style={{ marginRight: '5px' }}
-              onClick={handleAddData}
-            />
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<CloseOutlined />}
-              onClick={handleCancelEdit}
-            />
-          </>
-        ) : (
-          <>
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<EditOutlined />}
-              style={{ marginRight: '5px' }}
-              onClick={() => handleEditData(index)}
-            />
-            <Button
-              type="primary"
-              shape="circle"
-              icon={<DeleteOutlined />}
-              onClick={() => handleDeleteDataConfirmation(index)}
-            />
-          </>
-        )}
+    <Row justify={"center"} align={"center"}>
+      <Col span={22}>
+        <Row
+          style={{
+            backgroundColor: "white",
+          }}
+          justify={"space-between"}
+          align={"middle"}
+        >
+          <Divider style={{ padding: "5px", margin: "5px" }} />
+
+          <Col onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Row>
+              <Image
+                src={require("../assets/images/logo.png")}
+                preview={false}
+                width={32}
+                height={32}
+                
+              />
+
+              {editIndex === index ? (
+                <Input
+                  value={newData}
+                  onChange={(e) => setNewData(e.target.value)}
+                  onPressEnter={handleAddData}
+                  autoFocus
+                />
+              ) : (
+                <p style={{marginInline:'1rem',fontWeight:'bold'}}>{item.value}</p>
+              )}
+              {editIndex === index ? (
+                <></>
+              ) : (
+                <>
+                  {isHovered ? (
+                    <img
+                      src={afterHoverImage}
+                      alt="After Hover"
+                      style={{ marginRight: "5px", cursor: "pointer" }}
+                      onClick={() => handleEditData(index)}
+                    />
+                  ) : (
+                    <img
+                      src={beforeHoverImage}
+                      alt="Before Hover"
+                      style={{ marginRight: "5px", cursor: "pointer" }}
+                      onClick={() => handleEditData(index)}
+                    />
+                  )}
+                </>
+              )}
+            </Row>
+          </Col>
+
+          <Col>
+            <p>{item.createdDate}</p>
+          </Col>
+          <Col onMouseEnter={handleDeleteMouseEnter} onMouseLeave={handleDeleteMouseLeave}>
+            {isDeleteHovered ? (
+              <img
+                src={afterHoverImageDelete}
+                alt="After Hover Delete"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleDeleteDataConfirmation(index)}
+              />
+            ) : (
+              <img
+                src={beforeHoverImageDelete}
+                alt="Before Hover Delete"
+                style={{ cursor: "pointer" }}
+                onClick={() => handleDeleteDataConfirmation(index)}
+              />
+            )}
+          </Col>
+          <Divider style={{ padding: "5px", margin: "5px" }} />
+        </Row>
       </Col>
     </Row>
   );

@@ -14,6 +14,7 @@ const HeaderComponent = ({ setIsAddingData }) => {
         backgroundColor: 'white',
         boxShadow: '0 2px 4px rgba(151, 151, 151, 1)',
         height: '124px',
+        marginBottom:'2rem'
       }}
     >
       <Row
