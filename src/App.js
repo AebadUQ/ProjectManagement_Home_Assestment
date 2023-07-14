@@ -114,14 +114,14 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
         preview={false}
         width={32}
         height={32}
-        style={{ display: 'inline-flex' }}
+        style={{ display: 'inline-flex',marginRight:'1rem' }}
       />
       <Input
         placeholder="Name your project"
         value={newData}
         onChange={(e) => setNewData(e.target.value)}
         onKeyPress={handleInputKeyPress}
-        style={{ display: 'inline-flex', marginLeft: '0.5rem',width:'200px' }}
+        style={{ display: 'inline-flex', marginLeft: '1rem',width:'200px' }}
       />
     </Row>
   </Col>

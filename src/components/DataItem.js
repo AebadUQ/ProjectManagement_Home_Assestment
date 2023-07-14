@@ -54,6 +54,7 @@ const DataItem = ({
               preview={false}
               width={32}
               height={32}
+              style={{marginRight:'1rem'}}
             />
 
             {editIndex === index ? (
@@ -62,6 +63,7 @@ const DataItem = ({
                 onChange={(e) => setNewData(e.target.value)}
                 onPressEnter={handleAddData}
                 autoFocus
+                style={{marginLeft:'1rem'}}
               />
             ) : (
               <p style={{ marginInline: '1rem', fontWeight: 'bold' }}>{item.value}</p>
