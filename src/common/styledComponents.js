@@ -30,6 +30,9 @@ export const StyledButton = styled(Button)`
     background-color: #4a475f;
     height: 60px;
     width: 60px;
+    &:hover {
+      background-color: #3d3a4f !important;
+    }
   }
 `;
 

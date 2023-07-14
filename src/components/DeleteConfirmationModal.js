@@ -1,5 +1,4 @@
 import React from 'react';
-import { Modal } from 'antd';
 import MyIcon from '../assets/images/Question.svg'; 
 import { StyledModal } from '../common/styledComponents';
 const DeleteConfirmationModal = ({ visible, handleConfirmDelete, handleCancelDelete }) => {

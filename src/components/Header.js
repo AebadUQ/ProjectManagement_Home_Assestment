@@ -9,8 +9,7 @@ import {
   StyledPlusOutlined,
   StyledTitle
 } from "../common/styledComponents";
-const { Header } = Layout;
-const { Title } = Typography;
+
 
 const HeaderComponent = ({ setIsAddingData }) => {
   return (
