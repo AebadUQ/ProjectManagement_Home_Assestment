@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Layout, Row, Col, Typography, Input, Divider, Image } from "antd";
+import { Layout, Row, Col,  Input, Divider, Image } from "antd";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { addData, editData, deleteData, dragEnd } from "./actions";
 
