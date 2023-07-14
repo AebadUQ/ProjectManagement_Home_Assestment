@@ -39,8 +39,9 @@ const DataItem = ({
   return (
     <Row justify="center" align="middle" style={{ padding: '0px', margin: '0px', marginBottom: '10px' }}>
       <Col span={24}>
-        <Row style={{ backgroundColor: "white" }} justify="space-between" align="middle">
-          <Divider style={{ padding: "0px", margin: "0px", marginTop: '0px' }} />
+      <Divider style={{ padding: "0px", margin: "0px", marginTop: '0px' }} />
+
+        <Row style={{ backgroundColor: "white",border:isDeleteHovered?'0.5px solid black':'0px',paddingInline:'2rem' }} justify="space-between" align="middle">
 
           <Col
           span={10}
@@ -108,8 +109,9 @@ const DataItem = ({
               />
             )}
           </Col>
-          <Divider style={{ padding: "0px", margin: "0px", marginBottom: '0px' }} />
         </Row>
+        <Divider style={{ padding: "0px", margin: "0px", marginBottom: '0px' }} />
+
       </Col>
     </Row>
   );

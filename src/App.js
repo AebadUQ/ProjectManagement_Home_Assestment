@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Layout, Row, Col, Typography, Input } from 'antd';
+import { Layout, Row, Col, Typography, Input ,Divider,Image} from 'antd';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { addData, editData, deleteData, dragEnd } from './actions';
 
@@ -103,16 +103,32 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
 
       <Content style={{ padding: '20px' }}>
         {isAddingData ? (
-          <Row>
-            <Col span={8}>
-              <Input
-                placeholder="Enter data"
-                value={newData}
-                onChange={(e) => setNewData(e.target.value)}
-                onKeyPress={handleInputKeyPress}
-              />
-            </Col>
-          </Row>
+              <>
+      <Divider style={{ padding: "0px", margin: "0px", marginBottom: '6px' }} />
+
+<Row style={{ paddingInline: '2rem' }}>
+  <Col >
+    <Row >
+      <Image
+        src={require("./assets/images/logo.png")}
+        preview={false}
+        width={32}
+        height={32}
+        style={{ display: 'inline-flex' }}
+      />
+      <Input
+        placeholder="Name your project"
+        value={newData}
+        onChange={(e) => setNewData(e.target.value)}
+        onKeyPress={handleInputKeyPress}
+        style={{ display: 'inline-flex', marginLeft: '0.5rem',width:'200px' }}
+      />
+    </Row>
+  </Col>
+</Row>
+
+      <Divider style={{ padding: "0px", margin: "0px", marginTop: '6px',marginBottom:'2rem' }} /></>
+
         ) : null}
 
         <DragDropContext onDragEnd={handleDragEnd}>
