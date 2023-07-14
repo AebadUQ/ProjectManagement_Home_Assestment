@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col, Image, Input, Divider } from "antd";
-import { EditOutlined, DeleteOutlined, CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import beforeHoverImage from "../assets/images/EditIcon.svg";
 import afterHoverImage from "../assets/images/EditIcon_Hover.svg";
 import beforeHoverImageDelete from "../assets/images/DeleteIcon.svg";
