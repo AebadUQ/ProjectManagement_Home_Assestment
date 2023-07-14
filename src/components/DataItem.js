@@ -12,7 +12,6 @@ const DataItem = ({
   setNewData,
   handleAddData,
   handleEditData,
-  handleCancelEdit,
   handleDeleteDataConfirmation,
   index,
 }) => {
@@ -72,18 +71,22 @@ const DataItem = ({
             ) : (
               <>
                 {isHovered ? (
-                  <img
+                  <Image
                     src={afterHoverImage}
                     alt="After Hover"
                     style={{ marginRight: "5px", cursor: "pointer" }}
                     onClick={() => handleEditData(index)}
+                    preview={false}
+
                   />
                 ) : (
-                  <img
+                  <Image
                     src={beforeHoverImage}
                     alt="Before Hover"
                     style={{ marginRight: "5px", cursor: "pointer" }}
                     onClick={() => handleEditData(index)}
+                    preview={false}
+
                   />
                 )}
               </>
@@ -95,18 +98,21 @@ const DataItem = ({
           </Col>
           <Col onMouseEnter={handleDeleteMouseEnter} onMouseLeave={handleDeleteMouseLeave}>
             {isDeleteHovered ? (
-              <img
+              <Image
                 src={afterHoverImageDelete}
                 alt="After Hover Delete"
                 style={{ cursor: "pointer" }}
                 onClick={() => handleDeleteDataConfirmation(index)}
+                preview={false}
+
               />
             ) : (
-              <img
+              <Image
                 src={beforeHoverImageDelete}
                 alt="Before Hover Delete"
                 style={{ cursor: "pointer" }}
                 onClick={() => handleDeleteDataConfirmation(index)}
+                preview={false}
               />
             )}
           </Col>
