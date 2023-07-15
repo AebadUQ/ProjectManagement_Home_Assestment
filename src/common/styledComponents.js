@@ -180,3 +180,12 @@ export const EditInput=styled(Input)`
 margin-left: 1rem;
 width: 75%;
 `;
+
+//header
+export const HeaderRow=styled(Row)`
+position: relative;
+height: 100%;
+`;
+export const HeaderLogo=styled(Image)`
+margin-right: 10px;
+`

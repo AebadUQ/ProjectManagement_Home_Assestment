@@ -1,37 +1,34 @@
 import React from "react";
-import { Layout, Button, Row, Col, Typography, Image } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
+import { Row, Col  } from "antd";
 
 import Logo from "../assets/images/logo.png";
 import {
   StyledHeader,
   StyledButton,
   StyledPlusOutlined,
-  StyledTitle
+  StyledTitle,
+  HeaderRow,
+  HeaderLogo
 } from "../common/styledComponents";
 
 
 const HeaderComponent = ({ setIsAddingData }) => {
   return (
     <StyledHeader>
-      <Row
+      <HeaderRow
         align="top"
         justify="center"
-        style={{
-          position: "relative",
-          height: "100%",
-        }}
+       
       >
         <Col xs={24} sm={22} md={22} lg={22} xl={22} xxl={22}>
           <Row>
             <Col>
-              <Image
+              <HeaderLogo
                 src={Logo}
                 alt="Logo"
                 preview={false}
                 width={40}
                 height={40}
-                style={{ marginRight: "10px" }}
               />
              <StyledTitle level={4}>MY PROJECT</StyledTitle>
             </Col>
@@ -43,7 +40,7 @@ const HeaderComponent = ({ setIsAddingData }) => {
             />
           </Row>
         </Col>
-      </Row>
+      </HeaderRow>
     </StyledHeader>
   );
 };

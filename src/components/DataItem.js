@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Image, Input, Divider } from "antd";
+import { Row, Col, Image } from "antd";
 import beforeHoverImage from "../assets/images/EditIcon.svg";
 import afterHoverImage from "../assets/images/EditIcon_Hover.svg";
 import beforeHoverImageDelete from "../assets/images/DeleteIcon.svg";
@@ -9,7 +9,6 @@ import {
   StyledRowDataItem,
   DividerTopDataItem,
   StyledInnerRowDataItem,
-  StyledRowApp,
   DividerBottomDataItem,
   EditInput
 } from "../common/styledComponents";
