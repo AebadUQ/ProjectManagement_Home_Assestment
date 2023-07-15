@@ -1,9 +1,10 @@
-import { Modal ,Button,Layout,Typography,Row,Image } from "antd";
+import { Modal ,Button,Layout,Typography,Row,Image, Divider,Input } from "antd";
 import styled from "styled-components";
 import { PlusOutlined } from '@ant-design/icons';
 const { Title } = Typography;
 
 const { Header } = Layout;
+const { Content } = Layout;
 
 export const StyledModal = styled(Modal)`
   .ant-modal-content {
@@ -99,4 +100,44 @@ background-color: #eeeff3;
 export const ModalImg=styled(Image)`
 margin-bottom: 5px;
 
+`;
+
+
+//app.js
+export const StyledLayout=styled(Layout)`
+background-color: white;
+`;
+export const StyledContent=styled(Content)`
+padding-top: 2rem;
+padding-bottom: 2rem;
+`;
+
+export const DividerTopApp=styled(Divider)`
+padding: 0px;
+margin: 0px;
+margin-bottom: 6px;
+`;
+
+export const StyledRowApp=styled(Row)`
+padding-top: 0.75rem;
+padding-bottom: 0.75rem;
+padding-inline: 1.25rem;
+`;
+export const AddInputimg=styled(Image)`
+display: inline-flex;
+margin-right: 1rem;
+`;
+
+export const InputApp=styled(Input)`
+display: inline-flex;
+margin-left: 1rem;
+width: 200px;
+`;
+export const DividerBottomApp=styled(Divider)`
+padding: 0px;
+margin: 0px;
+margin-bottom: 2rem;
+margin-top: 6px;
+
+          
 `;

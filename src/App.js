@@ -9,8 +9,7 @@ import DataItem from "./components/DataItem";
 import DeleteConfirmationModal from "./components/DeleteConfirmationModal";
 
 import Logo from "./assets/images/logo.png";
-import { StyledDiv } from "./common/styledComponents";
-const { Content } = Layout;
+import { StyledDiv,StyledLayout,StyledContent,DividerTopApp,StyledRowApp,AddInputimg,InputApp ,DividerBottomApp} from "./common/styledComponents";
 
 const App = ({ data, addData, editData, deleteData, dragEnd }) => {
   const [isAddingData, setIsAddingData] = useState(false);
@@ -93,50 +92,42 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
   };
 
   return (
-    <Layout style={{ backgroundColor: "white" }}>
+    <StyledLayout >
       <HeaderComponent setIsAddingData={setIsAddingData} />
 
-      <Content style={{ padding: "20px" }}>
+      <StyledContent>
         {isAddingData ? (
-          <>
-            <Divider
-              style={{ padding: "0px", margin: "0px", marginBottom: "6px" }}
+          <Row justify={"center"} align={"middle"}>
+            <Col xs={23} sm={23} md={21} lg={21} xl={21} xxl={21}>
+
+           
+            <DividerTopApp
             />
 
-            <Row style={{ paddingInline: "2rem" }}>
+            <StyledRowApp>
               <Col>
                 <Row>
-                  <Image
+                  <AddInputimg
                     src={Logo}
                     preview={false}
                     width={32}
                     height={32}
-                    style={{ display: "inline-flex", marginRight: "1rem" }}
                   />
-                  <Input
+                  <InputApp
                     placeholder="Name your project"
                     value={newData}
                     onChange={(e) => setNewData(e.target.value)}
                     onKeyPress={handleInputKeyPress}
-                    style={{
-                      display: "inline-flex",
-                      marginLeft: "1rem",
-                      width: "200px",
-                    }}
+                    
                   />
                 </Row>
               </Col>
-            </Row>
+            </StyledRowApp>
 
-            <Divider
-              style={{
-                padding: "0px",
-                margin: "0px",
-                marginTop: "6px",
-                marginBottom: "2rem",
-              }}
+            <DividerBottomApp
             />
-          </>
+             </Col>
+          </Row>
         ) : null}
 
         <DragDropContext onDragEnd={handleDragEnd}>
@@ -179,14 +170,14 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
             )}
           </Droppable>
         </DragDropContext>
-      </Content>
+      </StyledContent>
 
       <DeleteConfirmationModal
         visible={deleteModalVisible}
         handleConfirmDelete={handleConfirmDelete}
         handleCancelDelete={handleCancelDelete}
       />
-    </Layout>
+    </StyledLayout>
   );
 };
 
