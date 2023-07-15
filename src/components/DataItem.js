@@ -44,7 +44,7 @@ const DataItem = ({
 
   return (
     <StyledRowDataItem justify="center" align="middle" >
-      <Col xs={23} sm={23} md={21} lg={21} xl={21} xxl={21}>
+      <Col xs={23} sm={23} md={21} lg={21} xl={21} xxl={21} >
         <DividerTopDataItem />
 
         <StyledInnerRowDataItem
@@ -157,7 +157,9 @@ const DataItem = ({
                         xxl={12}
                       >
                     <Row justify={"center"}>
+                    <span style={{paddingInline:'1rem'}}>
                     {item.createdDate}
+                    </span>
                     </Row>
                       </Col>
                       <Col

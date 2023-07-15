@@ -141,13 +141,20 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
                     index={index}
                   >
                     {(provided, snapshot) => (
+                   
+
+                       
                       <StyledDiv
+                     
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
                         isDragging={snapshot.isDragging}
                         draggableProps={provided.draggableProps.style}
                       >
+                        
+
+                          
                         <DataItem
                           item={item}
                           newData={newData}
@@ -161,7 +168,9 @@ const App = ({ data, addData, editData, deleteData, dragEnd }) => {
                           }
                           index={index}
                         />
+                        
                       </StyledDiv>
+                 
                     )}
                   </Draggable>
                 ))}
