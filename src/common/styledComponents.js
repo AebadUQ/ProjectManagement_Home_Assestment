@@ -1,6 +1,7 @@
 import { Modal ,Button,Layout,Typography,Row,Image, Divider,Input } from "antd";
 import styled from "styled-components";
 import { PlusOutlined } from '@ant-design/icons';
+import '../index.css'
 const { Title } = Typography;
 
 const { Header } = Layout;
@@ -20,6 +21,7 @@ background-color: white;
 box-shadow:0 2px 4px rgba(151, 151, 151, 1) ;
 height: 124px;
 margin-bottom: 2rem;
+font-family: 'Source Sans Pro Light', sans-serif;
    
 `;
 
@@ -47,6 +49,8 @@ export const StyledTitle = styled(Title)`
     font-weight: 600;
     margin-bottom: 0;
     color: rgba(66, 66, 66, 1);
+    font-size: 16px;
+    font-family: 'Source Sans Pro Regular', sans-serif;
   }
 `;
 export const draggableDiv = styled.div`
@@ -81,11 +85,14 @@ padding-inline: 1.25rem;
 export const ModalDesc=styled.p`
 margin-left:26px;
 color: #87888a;
+font-family: 'SourceSansPro Light', sans-serif;
 
 `;
 
 export const ModalTitle=styled.span`
 margin-left:10px;
+font-family: 'SourceSansPro Light', sans-serif;
+
 
 `;
 
@@ -180,7 +187,17 @@ export const EditInput=styled(Input)`
 margin-left: 1rem;
 width: 75%;
 `;
+export const ProjectName=styled.p`
 
+font-family: 'SourceSansPro-Bold', sans-serif;
+font-weight: bold;
+margin-inline: 1rem;
+`;
+export const ProjectCreate=styled.p`
+
+font-family: 'SourceSansPro Light', sans-serif;
+padding-inline: 1rem;
+`;
 //header
 export const HeaderRow=styled(Row)`
 position: relative;

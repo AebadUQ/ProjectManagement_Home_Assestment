@@ -10,7 +10,9 @@ import {
   DividerTopDataItem,
   StyledInnerRowDataItem,
   DividerBottomDataItem,
-  EditInput
+  EditInput,
+  ProjectName,
+  ProjectCreate
 } from "../common/styledComponents";
 const DataItem = ({
   item,
@@ -58,7 +60,7 @@ const DataItem = ({
             >
             <Row  align={"middle"}>
               <Col xs={14} sm={14} md={12} lg={12} xl={12} xxl={12} >
-                <Row>
+              <Row align={"middle"}>
                   <Col span={24}>
                     <Row align={"middle"}>
                       <Col
@@ -86,14 +88,10 @@ const DataItem = ({
                               autoFocus
                             />
                           ) : (
-                            <p
-                              style={{
-                                marginInline: "1rem",
-                                fontWeight: "bold",
-                              }}
+                            <ProjectName
                             >
                               {item.value}
-                            </p>
+                            </ProjectName>
                           )}
                         </Row>
                       </Col>
@@ -156,9 +154,9 @@ const DataItem = ({
                         xxl={12}
                       >
                     <Row justify={"center"}>
-                    <span style={{paddingInline:'1rem'}}>
+                    <ProjectCreate>
                     {item.createdDate}
-                    </span>
+                    </ProjectCreate>
                     </Row>
                       </Col>
                       <Col
@@ -169,7 +167,7 @@ const DataItem = ({
                         xl={12}
                         xxl={12}
                       >
-                        <Row justify={"end"}>
+                        <Row justify={"end"} align={"middle"} style={{paddingTop:'0.5rem'}}>
                           <Col
                             onMouseEnter={handleDeleteMouseEnter}
                             onMouseLeave={handleDeleteMouseLeave}
